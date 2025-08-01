@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 1;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+</style>
+<body>
+
+    <h2 style="text-align:center">Some Glimpse of our work</h2>
+
+    <div class="container">
+        <div class="mySlides" id="mainVdoSpace">
+            <div class="numbertext">1 / 3</div>
+            <video class="demo cursor" controls autoplay alt="Space Game">
+                <source src="video/Space Game no combat shots.mp4">
+            </video>
+            <!--style="width:100%" onclick="currentSlide(2)" alt="merge">-->
+        </div>
+
+        <div class="mySlides" id="mainvdoVMM">
+            <div class="numbertext">2 / 3</div>
+            <video class="demo cursor" controls autoplay alt="Space Game">
+                <source src="video/VMM Trailer (1).mp4">
+            </video>
+        </div>
+
+        <div class="mySlides" id="mainvdoCandy">
+            <div class="numbertext">3 / 3</div>
+            <video class="demo cursor" controls autoplay alt="Space Game">
+                <source src="video/Candykash Trailer.mp4">
+            </video>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+        <div class="row" id="gameSpace">
+            <div class="column">
+                <img class="demo cursor" src="images/SpaceShip (1).png" style="width:100%" alt="Space Game">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/SpaceShip (2).png" style="width:100%" alt="Space Game">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/SpaceShip (3).png" style="width:100%" alt="Space Game">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/SpaceShip (4).png" style="width:100%" alt="Space Game">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/SpaceShip (5).png" style="width:100%" alt="Space Game">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/SpaceShip (6).png" style="width:100%" alt="Space Game">
+            </div>
+        </div>
+
+        <div class="row" id="gamevmm">
+            <div class="column">
+                <img class="demo cursor" src="images/Screenshot_1.png" style="width:100%" alt="VMM Game">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/Screenshot_2.png" style="width:100%" alt="VMM Game">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/Screenshot_3.png" style="width:100%" alt="VMM Game">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/Screenshot_4.png" style="width:100%" alt="VMM Game">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/Screenshot_5.png" style="width:100%" alt="VMM Game">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/Screenshot_6.png" style="width:100%" alt="VMM Game">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/Screenshot_7.png" style="width:100%" alt="VMM Game">
+            </div>
+        </div>
+
+        <div class="row" id="gameCandy">
+            <div class="column">
+                <img class="demo cursor" src="images/candy_1.jpeg" style="width:100%" alt="CandyKash">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/candy_2.jpeg" style="width:100%" alt="CandyKash">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/candy_3.jpeg" style="width:100%" alt="CandyKash">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/candy_4.jpeg" style="width:100%" alt="CandyKash">
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        //showSlides(1,slideIndex);
+        plusSlides(1);
+        function plusSlides(n) {
+            slideIndex = slideIndex + n;
+            if (slideIndex == 1) {
+
+                let current = document.getElementById("mainVdoSpace");
+                current.style.display = "block"
+
+                let prev = document.getElementById("mainvdoVMM");
+                prev.style.display = "none"
+
+                let candyMainSlide = document.getElementById("mainvdoCandy");
+                candyMainSlide.style.display = "none"
+
+
+                let currentSlide = document.getElementById("gameSpace");
+                currentSlide.style.display = "block"
+
+                let prevSlide = document.getElementById("gamevmm");
+                prevSlide.style.display = "none"
+                
+                let candySlide = document.getElementById("gameCandy");
+                candySlide.style.display = "none"
+
+            } else if (slideIndex == 2) {
+
+
+                let current = document.getElementById("mainvdoVMM");
+                current.style.display = "block"
+
+                let prev = document.getElementById("mainVdoSpace");
+                prev.style.display = "none"
+
+                let candyMainSlide = document.getElementById("mainvdoCandy");
+                candyMainSlide.style.display = "none"
+
+
+                let currentSlide = document.getElementById("gamevmm");
+                currentSlide.style.display = "block"
+
+                let prevSlide = document.getElementById("gameSpace");
+                prevSlide.style.display = "none"
+
+
+                let candySlide = document.getElementById("gameCandy");
+                candySlide.style.display = "none"
+               
+
+            } else {
+
+                let candyMainSlide = document.getElementById("mainvdoCandy");
+                candyMainSlide.style.display = "block"
+
+                let candySlide = document.getElementById("gameCandy");
+                candySlide.style.display = "block"
+
+
+                let current = document.getElementById("mainvdoVMM");
+                current.style.display = "none"
+
+                let prev = document.getElementById("mainVdoSpace");
+                prev.style.display = "none"
+                
+                let currentSlide = document.getElementById("gamevmm");
+                currentSlide.style.display = "none"
+
+                let prevSlide = document.getElementById("gameSpace");
+                prevSlide.style.display = "none"
+
+
+            }
+
+            //showSlides(1, slideIndex += n);
+        }
+
+
+        //function showSlides(m = 1,n) {
+        //    if (m = 1)
+        //    {
+        //        let i;
+        //        let slides = document.getElementsByClassName("mySlides");
+        //        let dots = document.getElementsByClassName("demo");
+        //        let captionText = document.getElementById("Space Game");
+        //        if (n > slides.length) { slideIndex = 1 }
+        //        if (n < 1) { slideIndex = slides.length }
+        //        for (i = 0; i < slides.length; i++) {
+        //            slides[i].style.display = "none";
+        //        }
+        //        for (i = 0; i < dots.length; i++) {
+        //            dots[i].className = dots[i].className.replace(" active", "");
+        //        }
+        //        slides[slideIndex - 1].style.display = "block";
+        //        dots[slideIndex - 1].className += " active";
+        //        captionText.innerHTML = dots[slideIndex - 1].alt;
+
+        //    }
+            
+        //}
+    </script>
+
+</body>
+</html>
